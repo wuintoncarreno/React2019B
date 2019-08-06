@@ -6,7 +6,7 @@
     <style>
         .red{
             background-color: red;
-          /*  color: white;*/
+          color: white;
         }
     </style>
     <title>Document</title>
@@ -18,14 +18,29 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.min.js"></script>
     <script type="text/babel">
     let rootElement = document.getElementById("root")
 
-    let message = <div className="red">HOLA MUNDO BABEL!!</div>;
+    let Message = (children, color, bgcolor, alumnos=0) => <div className="red">{children, bgcolor, color}
+    <div style={{backgroundColor: bgcolor, color}}> 
+    En la clase existen {alumnos} Alumnos</div>
+    </div>;
+    Message.propTypes={
+        alumnos: PropType.
+    };
+    //const divStyle = { padding: 10,backgroundcolor:'yellow'};
 
-    const divStyle = { color: 'white',padding: 10,};
-
-    const element =(<div style={divStyle}>{message} </div>);
+    const element =(<div style={{ padding: 10,backgroundColor:"yellow"}}> 
+    <Message color="green" bgcolor="orange" alumnos={"0"}> 
+    <div >
+    Hola react
+    </div>
+    </Message> 
+    <Message children="Hola react 2"/> 
+    <Message children="Hola react 3"/> 
+    </div>
+    );
     
     ReactDOM.render(element, rootElement);
     </script>

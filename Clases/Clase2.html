@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <style>
+      .red {
+        background-color: red;
+        color: white;
+      }
+    </style>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="src/index.js"></script>
+    <script type="text/babel">
+      let rootElement = document.getElementById("root");
+      /*
+      let element = document.createElement("div");
+      element.className = "red";
+      element.innerText = "Hola Mundo!!!";
+      rootElement.appendChild(element);
+      */
+      /*let element = React.createElement(
+        "div",
+        { className: "red" },
+       React.createElement('div', {}, "hola mundo")
+      );*/
+      class Message2 extends React.Component {
+        state = {
+          counter: 0
+        };
+        handleIncrement = () =>
+          this.setState({ counter: this.state.counter + 1 });
+        render() {
+          return (
+            <div>
+              YO SI TENGO ESTADO... {this.state.counter}
+              <button onClick={this.handleIncrement}>like +</button>
+            </div>
+          );
+        }
+      }
+      let Message3 = () => {
+        const [myCounter, setMyCounter] = React.useState(0);
+        const handleIncrement = () => setMyCounter(myCounter + 1);
+        return (
+          <div>
+            Yo tambien tengo estado {myCounter}{" "}
+            <button onClick={handleIncrement}>incrementa +</button>
+          </div>
+        );
+      };
+      let Message = ({ children, color, bgColor, alumnos }) => (
+        <div style={{ backgroundColor: bgColor, color }}>
+          {children} <div>En la clase existen {alumnos} alumnos</div>
+        </div>
+      );
+
+      Message.propTypes = {
+        alumnos: PropTypes.number
+      };
+
+      const element = (
+        <div style={{ padding: 10, backgroundColor: "yellow" }}>
+          <Message color="green" bgColor="orange" alumnos={0}>
+            <div>Hola React 1</div>
+          </Message>
+          <Message>Hola React 2</Message>
+          <Message>Hola React 3</Message>
+          <Message2 />
+          <Message3 />
+        </div>
+      );
+
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>
