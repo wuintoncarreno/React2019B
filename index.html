@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .red{
+            background-color: red;
+          /*  color: white;*/
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+    let rootElement = document.getElementById("root")
+
+    let message = <div className="red">HOLA MUNDO BABEL!!</div>;
+
+    const divStyle = { color: 'white',padding: 10,};
+
+    const element =(<div style={divStyle}>{message} </div>);
+    
+    ReactDOM.render(element, rootElement);
+    </script>
+</body>
+</html>
