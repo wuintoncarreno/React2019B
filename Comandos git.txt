@@ -1,0 +1,9 @@
+echo "# React2019B" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/wuintoncarreno/React2019B.git
+git push -u origin master
+
+git remote add origin https://github.com/wuintoncarreno/React2019B.git
+git push -u origin master
